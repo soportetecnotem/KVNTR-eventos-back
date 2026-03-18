@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36811.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventosBack", "EventosBack.csproj", "{F6AFE619-652E-452A-BFDE-3AC63F248E41}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6AFE619-652E-452A-BFDE-3AC63F248E41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6AFE619-652E-452A-BFDE-3AC63F248E41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6AFE619-652E-452A-BFDE-3AC63F248E41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6AFE619-652E-452A-BFDE-3AC63F248E41}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {317BD3FA-D630-4327-B6CF-9716612182F7}
+	EndGlobalSection
+EndGlobal
