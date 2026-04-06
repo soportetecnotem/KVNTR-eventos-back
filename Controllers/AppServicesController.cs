@@ -35,7 +35,7 @@ namespace EventosBack.Controllers
         //Login
         [HttpPost("Validar")]
         [AllowAnonymous]
-        [EndpointSummary("Valida usuario y contraseña de agentes en SICAS y retorna token para iniciar sesión en App")]
+        [EndpointSummary("Valida usuario y contraseña para App")]
         public async Task<ActionResult<RespuestaObjetoDTO>> Validar([FromBody] LoginModels paramsModel)
         {
             var respuesta = new RespuestaObjetoDTO
@@ -62,27 +62,21 @@ namespace EventosBack.Controllers
                     return Ok(respuesta);
                 }
 
-                //// 2. Validar si es usuario SICAS
-                //var result = await _sicasService.ValidaAccesoSicasAsync(paramsModel.Cve_Vend, paramsModel.Contrasena);
+                //Si encontro al convencionista, validar contraseña
+                if (convencionista.Contrasena != paramsModel.Contrasena)
+                    {
+                        respuesta.Status = false;
+                        respuesta.Message.Add("Contraseña incorrecta");
+                        return Ok(respuesta);
+                }
 
                 // Mapear convencionista
                 var ConvDTO = mapper.Map<DetalleConvDTO>(convencionista);
                 var token = await TokenApp(ConvDTO);
 
-                //if (result.Status == true)
-                //{
-                //    // Es usuario SICAS
-                //    respuesta.Status = true;
-                //    respuesta.Message.Add("Convencionista Usuario SICAS");
-                //    respuesta.Response = new { Access = token, Convencionista = ConvDTO };
-                //}
-                //else
-                //{
-                    // Existe como convencionista pero no es usuario SICAS
                     respuesta.Status = true;
-                    respuesta.Message.Add("Convencionista Invitado");
+                    respuesta.Message.Add("Convencionista Loggeado");
                     respuesta.Response = new { Access = token, Convencionista = ConvDTO };
-                //}
 
                 return Ok(respuesta);
             }

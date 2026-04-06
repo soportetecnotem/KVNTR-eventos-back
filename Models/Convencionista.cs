@@ -10,6 +10,7 @@
         public string Imagen { get; set; } = null!;
         public string Documento { get; set; } = null!;
         public bool Activo { get; set; }
+        public string Contrasena { get; set; } = null!;
 
         //Propiedad de navegacion para vincular a un evento -- muchos a muchos
         public List<EventoUsuario> EventosUsuarios { get; set; } = [];
